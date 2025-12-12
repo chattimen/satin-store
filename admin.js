@@ -26,7 +26,7 @@ function loadAdminProducts() {
         const colorsDisplay = product.colors ? `<p><strong>Couleurs:</strong> ${product.colors.join(', ')}</p>` : '';
         productItem.innerHTML = `
             <h4>${product.name}</h4>
-            <p><strong>Prix:</strong> ${product.price.toFixed(2)} TND</p>
+            <p><strong>Prix:</strong> ${product.price.toFixed(2)} €</p>
             <p><strong>Description:</strong> ${product.description}</p>
             ${colorsDisplay}
             <p><strong>ID:</strong> ${product.id}</p>

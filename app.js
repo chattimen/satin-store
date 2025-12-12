@@ -6,6 +6,22 @@ const PRODUCTS_KEY = 'ecommerce_products';
 const CART_KEY = 'ecommerce_cart';
 let productModal = null;
 
+// Build a local inline SVG placeholder (no external network required)
+function buildPlaceholder(text, w = 250, h = 200) {
+        const bg = '#ecf0f1';
+        const fg = '#7f8c8d';
+        const svg = `<?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+            <rect width="100%" height="100%" fill="${bg}"/>
+            <text x="50%" y="50%" font-family="Segoe UI, Tahoma, sans-serif" font-size="16" fill="${fg}" dominant-baseline="middle" text-anchor="middle">${text}</text>
+        </svg>`;
+        const encoded = encodeURIComponent(svg)
+                .replace(/'/g, '%27')
+                .replace(/\(/g, '%28')
+                .replace(/\)/g, '%29');
+        return `data:image/svg+xml;charset=UTF-8,${encoded}`;
+}
+
 // Initialize products in localStorage if empty
 function initializeProducts() {
     if (!localStorage.getItem(PRODUCTS_KEY)) {
@@ -13,51 +29,65 @@ function initializeProducts() {
             {
                 id: 1,
                 name: 'Bonnet Satin Classique',
-                price: 15,
+                price: 45,
                 description: 'Bonnet en satin de soie, protège vos cheveux pendant le sommeil',
-                image: 'https://via.placeholder.com/250x200?text=Bonnet+Satin',
+                image: buildPlaceholder('Bonnet Satin Classique'),
                 colors: ['Noir', 'Rose', 'Bleu', 'Beige', 'Violet']
             },
-         
             {
                 id: 2,
-                name: 'Oreiller Satin',
-                price: 15,
-                description: 'Taie d\'oreiller en satin, anti-frisottis et anti-rides',
-                image: 'https://via.placeholder.com/250x200?text=Oreiller+Satin',
-                colors: ['Noir', 'Blanc', 'Rose', 'Gris', 'Champagne']
+                name: 'Bonnet Satin Premium',
+                price: 70,
+                description: 'Bonnet en satin premium double couche, confort optimal',
+                image: buildPlaceholder('Bonnet Satin Premium'),
+                colors: ['Noir', 'Blanc', 'Bordeaux', 'Or']
             },
             {
                 id: 3,
-                name: 'Pack Bonnet + Oreiller',
-                price: 25,
-                description: 'Pack complet bonnet et taie d\'oreiller en satin',
-                image: 'https://via.placeholder.com/250x200?text=Pack+Complet',
-                colors: ['Noir', 'Rose', 'Blanc', 'Bleu']
+                name: 'Oreiller Satin',
+                price: 85,
+                description: 'Taie d\'oreiller en satin, anti-frisottis et anti-rides',
+                image: buildPlaceholder('Oreiller Satin'),
+                colors: ['Noir', 'Blanc', 'Rose', 'Gris', 'Champagne']
             },
             {
                 id: 4,
-                name: 'Bonnet Satin XL',
-                price: 20,
-                description: 'Bonnet satin taille XL pour cheveux longs et volumineux',
-                image: 'https://via.placeholder.com/250x200?text=Bonnet+XL',
-                colors: ['Noir', 'Rose', 'Violet', 'Vert', 'Caramel']
+                name: 'Pack Bonnet + Oreiller',
+                price: 115,
+                description: 'Pack complet bonnet et taie d\'oreiller en satin',
+                image: buildPlaceholder('Pack Bonnet + Oreiller'),
+                colors: ['Noir', 'Rose', 'Blanc', 'Bleu']
             },
-         
             {
                 id: 5,
-                name: 'Bonnet Satin Double Face',
-                price: 18,
-                description: 'Bonnet satin réversible avec deux couleurs différentes, design unique',
-                image: 'https://via.placeholder.com/250x200?text=Bonnet+Double+Face',
-                colors: ['Noir/Rose', 'Bleu/Blanc', 'Violet/Beige', 'Rouge/Or']
+                name: 'Bonnet Satin XL',
+                price: 55,
+                description: 'Bonnet satin taille XL pour cheveux longs et volumineux',
+                image: buildPlaceholder('Bonnet Satin XL'),
+                colors: ['Noir', 'Rose', 'Violet', 'Vert', 'Caramel']
             },
             {
                 id: 6,
+                name: 'Oreiller Satin Couleur',
+                price: 95,
+                description: 'Taie d\'oreiller satin disponible en plusieurs couleurs',
+                image: buildPlaceholder('Oreiller Satin Couleur'),
+                colors: ['Rouge', 'Turquoise', 'Lavande', 'Corail', 'Menthe']
+            },
+            {
+                id: 7,
+                name: 'Bonnet Satin Double Face',
+                price: 80,
+                description: 'Bonnet satin réversible avec deux couleurs différentes, design unique',
+                image: buildPlaceholder('Bonnet Satin Double Face'),
+                colors: ['Noir/Rose', 'Bleu/Blanc', 'Violet/Beige', 'Rouge/Or']
+            },
+            {
+                id: 8,
                 name: 'Pack 2 Oreillers Satin',
-                price: 25,
+                price: 160,
                 description: 'Pack de deux taies d\'oreiller en satin, économisez 10%',
-                image: 'https://via.placeholder.com/250x200?text=Pack+2+Oreillers',
+                image: buildPlaceholder('Pack 2 Oreillers Satin'),
                 colors: ['Noir', 'Blanc', 'Rose', 'Assorti']
             }
         ];
@@ -208,10 +238,10 @@ function loadProducts() {
         }
         
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/250x200?text=${encodeURIComponent(product.name)}'">
+            <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='${buildPlaceholder(product.name)}'">
             <div class="product-info">
                 <div class="product-name">${product.name}</div>
-                <div class="product-price">${product.price.toFixed(2)} TND</div>
+                <div class="product-price">${product.price.toFixed(2)} €</div>
                 <div class="product-description">${product.description}</div>
                 ${colorSelector}
                 <button class="btn btn-primary add-to-cart" data-product-id="${product.id}">
