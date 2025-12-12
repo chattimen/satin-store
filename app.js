@@ -241,7 +241,7 @@ function loadProducts() {
             <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='${buildPlaceholder(product.name)}'">
             <div class="product-info">
                 <div class="product-name">${product.name}</div>
-                <div class="product-price">${product.price.toFixed(2)} €</div>
+                <div class="product-price">${product.price.toFixed(2)} TND</div></div>
                 <div class="product-description">${product.description}</div>
                 ${colorSelector}
                 <button class="btn btn-primary add-to-cart" data-product-id="${product.id}">
