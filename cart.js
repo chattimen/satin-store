@@ -37,7 +37,11 @@ function loadCartItems() {
                 <button onclick="updateQuantity(${item.id}, ${item.quantity + 1}, '${item.selectedColor}')" class="btn btn-secondary">+</button>
             </div>
             <div style="font-weight: bold; margin: 0 1rem;">${(item.price * item.quantity).toFixed(2)} TND</div>
-            <button class="btn btn-danger" onclick="removeFromCart(${item.id}, '${item.selectedColor}'); loadCartItems();">Supprimer</button>
+            <button class="icon-button" title="Supprimer" aria-label="Supprimer" onclick="removeFromCart(${item.id}, '${item.selectedColor}'); loadCartItems();">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M9 3h6a1 1 0 0 1 1 1v1h4a1 1 0 1 1 0 2h-1v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7H3a1 1 0 1 1 0-2h4V4a1 1 0 0 1 1-1zm1 2v1h4V5h-4zM7 7v13a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V7H7zm3 3a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0v-7a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0v-7a1 1 0 0 1 1-1z"/>
+                </svg>
+            </button>
         `;
         cartItemsContainer.appendChild(cartItem);
     });

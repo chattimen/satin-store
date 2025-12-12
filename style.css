@@ -18,12 +18,19 @@ body {
     padding: 0 20px;
 }
 
-/* Header and Navigation */
+/* Make top sections span full page width */
+.navbar .container,
+.hero .container {
+    max-width: 100%;
+    padding: 0 24px;
+}
+
+/* Header and Navigation (solid gradient band) */
 header {
     background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
     color: white;
-    padding: 1rem 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.25rem 0; /* slightly taller band */
+    box-shadow: none;
 }
 
 .navbar {
@@ -55,11 +62,13 @@ header {
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
+    font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #ffd700;
+    color: #67e8f9; /* cyan like screenshot */
 }
 
 #cart-count {
@@ -73,9 +82,10 @@ header {
 
 .admin-link {
     background-color: #27ae60;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 999px; /* pill */
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .admin-link:hover {
@@ -85,17 +95,30 @@ header {
 /* Main Content */
 main {
     min-height: calc(100vh - 200px);
-    padding: 2rem 0;
+    padding: 0;
 }
 
-/* Hero Section */
+/* Hero Section (content area following the band) */
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(90deg, #7c3aed 0%, #ec4899 100%);
+    padding: 3.5rem 2.5rem;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 45%, #ec4899 100%);
     color: white;
-    border-radius: 8px;
-    margin-bottom: 3rem;
+    border-radius: 16px;
+    margin: 2.5rem auto 3rem;
+    width: calc(100% - 32px);
+    max-width: 1100px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.hero h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .hero h2 {
@@ -340,8 +363,29 @@ body.modal-open {
 .btn-danger {
     background-color: #e74c3c;
     color: white;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+/* Minimal red trash icon button */
+.icon-button {
+    background: transparent;
+    color: #e74c3c;
+    border: none;
+    padding: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    color: #c0392b;
 }
 
 .btn-danger:hover {
