@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Satin Beauté</h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html" class="active">Panier</a></li>
+                    <li><a href="admin.html" class="admin-link">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="cart-section">
+            <h2>Panier d'Achat</h2>
+            <div id="cart-items" class="cart-items">
+                <!-- Articles du panier seront chargés ici -->
+            </div>
+            <div class="cart-summary">
+                <h3>Résumé de Commande</h3>
+                <p>Sous-total: <span id="subtotal">0.00 TND</span></p>
+                <p>Taxe (10%): <span id="tax">0.00 TND</span></p>
+                <p class="total">Total: <span id="total">0.00 TND</span></p>
+                <button id="checkout-btn" class="btn btn-primary">Passer la Commande</button>
+                <a href="index.html" class="btn btn-secondary">Continuer les Achats</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Satin Beauté. Tous droits réservés.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

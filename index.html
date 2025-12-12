@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Satin Beauté</h1>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="cart.html">Panier <span id="cart-count">0</span></a></li>
+                    <li><a href="admin.html" class="admin-link">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Bienvenue chez Satin Beauté</h2>
+            <p>Découvrez nos bonnets et oreillers en satin de qualité premium</p>
+        </section>
+
+        <section class="products">
+            <h2>Nos Produits</h2>
+            <div id="products-list" class="products-grid">
+                <!-- Products will be loaded here by app.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Satin Beauté. Tous droits réservés.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
