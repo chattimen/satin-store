@@ -29,15 +29,15 @@ function loadCartItems() {
             <div class="cart-item-info">
                 <div class="cart-item-name">${item.name}</div>
                 ${colorDisplay}
-                <div class="cart-item-price">${item.price.toFixed(2)} TND</div></div>
+                <div class="cart-item-price">${item.price.toFixed(2)} TND</div>
             </div>
             <div class="cart-item-quantity">
                 <button onclick="updateQuantity(${item.id}, ${item.quantity - 1}, '${item.selectedColor}')" class="btn btn-secondary">-</button>
                 <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, parseInt(this.value), '${item.selectedColor}')">
                 <button onclick="updateQuantity(${item.id}, ${item.quantity + 1}, '${item.selectedColor}')" class="btn btn-secondary">+</button>
             </div>
-            <div style="font-weight: bold; margin: 0 1rem;">${(item.price * item.quantity).toFixed(2)} TND</div></div>
-            <button class="btn btn-danger" onclick="removeFromCart(${item.id}, '${item.selectedColor}')">Supprimer</button>
+            <div style="font-weight: bold; margin: 0 1rem;">${(item.price * item.quantity).toFixed(2)} TND</div>
+            <button class="btn btn-danger" onclick="removeFromCart(${item.id}, '${item.selectedColor}'); loadCartItems();">Supprimer</button>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
@@ -63,16 +63,10 @@ function updateQuantity(productId, quantity, selectedColor) {
 function updateCartSummary() {
     const cartItems = getCartItems();
     
-    const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = subtotal * 0.10;
-    const total = subtotal + tax;
+    const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
-    const subtotalEl = document.getElementById('subtotal');
-    const taxEl = document.getElementById('tax');
     const totalEl = document.getElementById('total');
     
-    if (subtotalEl) subtotalEl.textContent = subtotal.toFixed(2) + ' TND';
-    if (taxEl) taxEl.textContent = tax.toFixed(2) + ' TND';
     if (totalEl) totalEl.textContent = total.toFixed(2) + ' TND';
 }
 
@@ -89,9 +83,7 @@ function setupCheckoutButton() {
             return;
         }
         
-        const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const tax = subtotal * 0.10;
-        const total = subtotal + tax;
+        const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         
         const orderSummary = cartItems
             .map(item => {
@@ -100,7 +92,7 @@ function setupCheckoutButton() {
             })
             .join('\n');
         
-        const message = `Résumé de Commande:\n\n${orderSummary}\n\nSous-total: ${subtotal.toFixed(2)} TND\nTaxe (10%): ${tax.toFixed(2)} TND\nTotal: ${total.toFixed(2)} TND\n\nPasser la commande ?`;
+        const message = `Résumé de Commande:\n\n${orderSummary}\n\nTotal: ${total.toFixed(2)} TND\n\nPasser la commande ?`;
         
         if (confirm(message)) {
             // Simulate checkout
