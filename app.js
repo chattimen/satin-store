@@ -28,66 +28,50 @@ function initializeProducts() {
         const defaultProducts = [
             {
                 id: 1,
-                name: 'Bonnet Satin Classique',
-                price: 45,
-                description: 'Bonnet en satin de soie, protège vos cheveux pendant le sommeil',
-                image: buildPlaceholder('Bonnet Satin Classique'),
-                colors: ['Noir', 'Rose', 'Bleu', 'Beige', 'Violet']
-            },
-            {
-                id: 2,
-                name: 'Bonnet Satin Premium',
-                price: 70,
-                description: 'Bonnet en satin premium double couche, confort optimal',
-                image: buildPlaceholder('Bonnet Satin Premium'),
-                colors: ['Noir', 'Blanc', 'Bordeaux', 'Or']
-            },
-            {
-                id: 3,
-                name: 'Oreiller Satin',
-                price: 85,
-                description: 'Taie d\'oreiller en satin, anti-frisottis et anti-rides',
-                image: buildPlaceholder('Oreiller Satin'),
-                colors: ['Noir', 'Blanc', 'Rose', 'Gris', 'Champagne']
-            },
-            {
-                id: 4,
-                name: 'Pack Bonnet + Oreiller',
-                price: 115,
-                description: 'Pack complet bonnet et taie d\'oreiller en satin',
-                image: buildPlaceholder('Pack Bonnet + Oreiller'),
-                colors: ['Noir', 'Rose', 'Blanc', 'Bleu']
-            },
-            {
-                id: 5,
-                name: 'Bonnet Satin XL',
-                price: 55,
-                description: 'Bonnet satin taille XL pour cheveux longs et volumineux',
-                image: buildPlaceholder('Bonnet Satin XL'),
-                colors: ['Noir', 'Rose', 'Violet', 'Vert', 'Caramel']
-            },
-            {
-                id: 6,
-                name: 'Oreiller Satin Couleur',
-                price: 95,
-                description: 'Taie d\'oreiller satin disponible en plusieurs couleurs',
-                image: buildPlaceholder('Oreiller Satin Couleur'),
-                colors: ['Rouge', 'Turquoise', 'Lavande', 'Corail', 'Menthe']
-            },
-            {
-                id: 7,
                 name: 'Bonnet Satin Double Face',
-                price: 80,
+                price: 20,
                 description: 'Bonnet satin réversible avec deux couleurs différentes, design unique',
                 image: buildPlaceholder('Bonnet Satin Double Face'),
                 colors: ['Noir/Rose', 'Bleu/Blanc', 'Violet/Beige', 'Rouge/Or']
             },
             {
-                id: 8,
-                name: 'Pack 2 Oreillers Satin',
-                price: 160,
-                description: 'Pack de deux taies d\'oreiller en satin, économisez 10%',
-                image: buildPlaceholder('Pack 2 Oreillers Satin'),
+                id: 2,
+                name: 'Taie d\'Oreiller Satin',
+                price: 20,
+                description: 'Taie d\'oreiller en satin, anti-frisottis et anti-rides',
+                image: buildPlaceholder('Taie d\'Oreiller Satin'),
+                colors: ['Noir', 'Blanc', 'Rose', 'Gris', 'Champagne']
+            },
+            {
+                id: 3,
+                name: 'Chouchou en Satin',
+                price: 5,
+                description: 'Chouchou en satin doux pour protéger vos cheveux',
+                image: buildPlaceholder('Chouchou en Satin'),
+                colors: ['Noir', 'Rose', 'Bleu', 'Beige', 'Violet']
+            },
+            {
+                id: 4,
+                name: 'Pack Taie d\'Oreiller + Bonnet + Chouchou',
+                price: 40,
+                description: 'Pack complet : taie d\'oreiller, bonnet et chouchou en satin',
+                image: buildPlaceholder('Pack Complet'),
+                colors: ['Noir', 'Rose', 'Blanc', 'Bleu']
+            },
+            {
+                id: 5,
+                name: 'Pack 2 Chouchous',
+                price: 7,
+                description: 'Pack de 2 chouchous en satin à prix réduit',
+                image: buildPlaceholder('Pack 2 Chouchous'),
+                colors: ['Noir', 'Rose', 'Violet', 'Assorti']
+            },
+            {
+                id: 6,
+                name: 'Pack Double Taie d\'Oreiller',
+                price: 35,
+                description: 'Pack de deux taies d\'oreiller en satin, économisez',
+                image: buildPlaceholder('Pack 2 Oreillers'),
                 colors: ['Noir', 'Blanc', 'Rose', 'Assorti']
             }
         ];
