@@ -24,14 +24,17 @@ function buildPlaceholder(text, w = 250, h = 200) {
 
 // Initialize products in localStorage if empty
 function initializeProducts() {
+    // Force reset to load new products
+    localStorage.removeItem(PRODUCTS_KEY);
+    
     if (!localStorage.getItem(PRODUCTS_KEY)) {
         const defaultProducts = [
             {
                 id: 1,
                 name: 'Bonnet Satin Double Face',
                 price: 20,
-                description: 'Bonnet satin réversible avec deux couleurs différentes, design unique',
-                image: buildPlaceholder('Bonnet Satin Double Face'),
+                description: 'Bonnet satin réversible avec deux couleurs différentes',
+                image: 'images/bonnet-satin-double-face.jpg',
                 colors: ['Noir/Rose', 'Bleu/Blanc', 'Violet/Beige', 'Rouge/Or']
             },
             {
@@ -39,7 +42,7 @@ function initializeProducts() {
                 name: 'Taie d\'Oreiller Satin',
                 price: 20,
                 description: 'Taie d\'oreiller en satin, anti-frisottis et anti-rides',
-                image: buildPlaceholder('Taie d\'Oreiller Satin'),
+                image: 'images/taie-oreiller-satin.jpg',
                 colors: ['Noir', 'Blanc', 'Rose', 'Gris', 'Champagne']
             },
             {
@@ -47,7 +50,7 @@ function initializeProducts() {
                 name: 'Chouchou en Satin',
                 price: 5,
                 description: 'Chouchou en satin doux pour protéger vos cheveux',
-                image: buildPlaceholder('Chouchou en Satin'),
+                image: 'images/chouchou-satin.jpg',
                 colors: ['Noir', 'Rose', 'Bleu', 'Beige', 'Violet']
             },
             {
@@ -55,7 +58,7 @@ function initializeProducts() {
                 name: 'Pack Taie d\'Oreiller + Bonnet + Chouchou',
                 price: 40,
                 description: 'Pack complet : taie d\'oreiller, bonnet et chouchou en satin',
-                image: buildPlaceholder('Pack Complet'),
+                image: 'images/pack-complet.jpg',
                 colors: ['Noir', 'Rose', 'Blanc', 'Bleu']
             },
             {
@@ -63,7 +66,7 @@ function initializeProducts() {
                 name: 'Pack 2 Chouchous',
                 price: 7,
                 description: 'Pack de 2 chouchous en satin à prix réduit',
-                image: buildPlaceholder('Pack 2 Chouchous'),
+                image: 'images/pack-2-chouchous.jpg',
                 colors: ['Noir', 'Rose', 'Violet', 'Assorti']
             },
             {
@@ -71,7 +74,7 @@ function initializeProducts() {
                 name: 'Pack Double Taie d\'Oreiller',
                 price: 35,
                 description: 'Pack de deux taies d\'oreiller en satin, économisez',
-                image: buildPlaceholder('Pack 2 Oreillers'),
+                image: 'images/pack-double-taie.jpg',
                 colors: ['Noir', 'Blanc', 'Rose', 'Assorti']
             }
         ];
